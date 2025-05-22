@@ -1,0 +1,92 @@
+# USERS
+
+### Criar usuário
+POST http://localhost:3000/api/users
+Content-Type: application/json
+
+{
+  "name": "João Silva",
+  "email": "joao.silva@email.com"
+}
+
+### Listar todos usuários
+GET http://localhost:3000/api/users
+
+### Buscar usuário por ID (ex: id=1)
+GET http://localhost:3000/api/users/1
+
+### Atualizar usuário (ex: id=1)
+PUT http://localhost:3000/api/users/1
+Content-Type: application/json
+
+{
+  "name": "João Silva Atualizado",
+  "email": "joao.silva.novo@email.com"
+}
+
+### Deletar usuário (ex: id=1)
+DELETE http://localhost:3000/api/users/1
+
+---
+
+# EVENTS
+
+### Criar evento
+POST http://localhost:3000/api/events
+Content-Type: application/json
+
+{
+  "title": "Evento Teste",
+  "date": "2025-06-01T10:00:00Z",
+  "created_by": 1
+}
+
+### Listar todos eventos
+GET http://localhost:3000/api/events
+
+### Buscar evento por ID (ex: id=1)
+GET http://localhost:3000/api/events/1
+
+### Atualizar evento (ex: id=1)
+PUT http://localhost:3000/api/events/1
+Content-Type: application/json
+
+{
+  "title": "Evento Teste Atualizado",
+  "date": "2025-06-02T12:00:00Z",
+  "created_by": 1
+}
+
+### Deletar evento (ex: id=1)
+DELETE http://localhost:3000/api/events/1
+
+---
+
+# REGISTRATIONS
+
+### Criar registro (registro de usuário no evento)
+POST http://localhost:3000/api/registrations
+Content-Type: application/json
+
+{
+  "user_id": 1,
+  "event_id": 1
+}
+
+### Listar todos registros
+GET http://localhost:3000/api/registrations
+
+### Buscar registro por ID (ex: id=1)
+GET http://localhost:3000/api/registrations/1
+
+### Atualizar registro (ex: id=1)
+PUT http://localhost:3000/api/registrations/1
+Content-Type: application/json
+
+{
+  "user_id": 1,
+  "event_id": 2
+}
+
+### Deletar registro (ex: id=1)
+DELETE http://localhost:3000/api/registrations/1
