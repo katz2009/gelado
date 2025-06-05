@@ -5,27 +5,27 @@ POST http://localhost:3000/api/users
 Content-Type: application/json
 
 {
-  "name": "João Silva",
-  "email": "joao.silva@email.com"
+  "name": "casdcakdscs ",
+  "email": "katz@email.com"
 }
 
 ### Listar todos usuários
 GET http://localhost:3000/api/users
 
 ### Buscar usuário por ID (ex: id=1)
-GET http://localhost:3000/api/users/1
+GET http://localhost:3000/api/users/23
 
 ### Atualizar usuário (ex: id=1)
-PUT http://localhost:3000/api/users/1
+PUT http://localhost:3000/api/users/23
 Content-Type: application/json
 
 {
-  "name": "João Silva Atualizado",
-  "email": "joao.silva.novo@email.com"
+  "name": "Andre Davi Katz",
+  "email": "geladokatz@email.com"
 }
 
 ### Deletar usuário (ex: id=1)
-DELETE http://localhost:3000/api/users/1
+DELETE http://localhost:3000/api/users/23
 
 ---
 
@@ -36,29 +36,29 @@ POST http://localhost:3000/api/events
 Content-Type: application/json
 
 {
-  "title": "Evento Teste",
-  "date": "2025-06-01T10:00:00Z",
-  "created_by": 1
+  "title": "Evento afosnso miranda davis ",
+  "date": "2025-05-01T10:00:00Z",
+  "created_by": 23
 }
 
 ### Listar todos eventos
 GET http://localhost:3000/api/events
 
 ### Buscar evento por ID (ex: id=1)
-GET http://localhost:3000/api/events/1
+GET http://localhost:3000/api/events/3
 
 ### Atualizar evento (ex: id=1)
-PUT http://localhost:3000/api/events/1
+PUT http://localhost:3000/api/events/8
 Content-Type: application/json
 
 {
   "title": "Evento Teste Atualizado",
   "date": "2025-06-02T12:00:00Z",
-  "created_by": 1
+  "created_by": 23
 }
 
 ### Deletar evento (ex: id=1)
-DELETE http://localhost:3000/api/events/1
+DELETE http://localhost:3000/api/events/5
 
 ---
 
@@ -69,24 +69,24 @@ POST http://localhost:3000/api/registrations
 Content-Type: application/json
 
 {
-  "user_id": 1,
-  "event_id": 1
+  "user_id": 23,
+  "event_id": 8
 }
 
 ### Listar todos registros
 GET http://localhost:3000/api/registrations
 
 ### Buscar registro por ID (ex: id=1)
-GET http://localhost:3000/api/registrations/1
+GET http://localhost:3000/api/registrations/9
 
 ### Atualizar registro (ex: id=1)
-PUT http://localhost:3000/api/registrations/1
+PUT http://localhost:3000/api/registrations/9
 Content-Type: application/json
 
 {
-  "user_id": 1,
-  "event_id": 2
+  "user_id": 23,
+  "event_id": 8
 }
 
 ### Deletar registro (ex: id=1)
-DELETE http://localhost:3000/api/registrations/1
+DELETE http://localhost:3000/api/registrations/7

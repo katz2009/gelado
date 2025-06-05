@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title><%= typeof title !== 'undefined' ? title : 'Meu Sistema' %></title>
+  <link rel="stylesheet" href="/styles.css" />
+</head>
+<body>
+  <header>
+    <h1>Meu Sistema de Eventos</h1>
+    <nav>
+      <a href="/hub">Hub</a> |
+      <a href="/register">Cadastrar Usuário</a> |
+      <a href="/events/create">Criar Evento</a>
+    </nav>
+    <hr />
+  </header>
+
+  <main>
+    <!-- O corpo específico de cada página -->
+    <%- body %>
+  </main>
+
+  <footer>
+    <hr />
+    <p style="text-align:center">© <%= new Date().getFullYear() %> Meu Sistema</p>
+  </footer>
+</body>
+</html>
