@@ -1,24 +1,28 @@
+
 const express = require('express');
 const router = express.Router();
 
-// Hub principal
-router.get('/hub', (req, res) => {
-  res.render('hub', { title: 'Hub Principal' });
-});
-
-// Tela de cadastro de usuário
 router.get('/register', (req, res) => {
-  res.render('users/register', { title: 'Cadastrar Usuário' });
+  res.render('users/register');
 });
 
-// Tela de criação de evento
+router.get('/hub', (req, res) => {
+  const user = req.session.userId
+    ? { id: req.session.userId, name: 'Usuário' }
+    : null;
+  res.render('hub', { user });
+});
+
 router.get('/events/create', (req, res) => {
-  res.render('events/create', { title: 'Criar Evento' });
+  res.render('events/create');
 });
 
-// Redireciona a raiz para o hub
-router.get('/', (req, res) => {
-  res.redirect('/hub');
+router.get('/confirm-delete', (req, res) => {
+  const user = req.session.userId
+    ? { id: req.session.userId, name: 'Usuário' }
+    : null;
+  if (!user) return res.redirect('/register');
+  res.render('confirmDelete', { user });
 });
 
 module.exports = router;

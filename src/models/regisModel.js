@@ -28,6 +28,20 @@ class RegistrationModel {
     const result = await pool.query('DELETE FROM registrations WHERE id = $1 RETURNING *', [id]);
     return result.rows[0];
   }
+
+static async deleteByUser (userId) {
+  await pool.query('DELETE FROM registrations WHERE user_id = $1', [userId]);
+}
+
+static async deleteByEventsOfCreator (creatorId) {
+  await pool.query(
+    `DELETE FROM registrations 
+       WHERE event_id IN (SELECT id FROM events WHERE created_by = $1)`,
+    [creatorId]
+  );
+}
+
+
 }
 
 module.exports = RegistrationModel;

@@ -9,11 +9,19 @@
 <body>
   <header>
     <h1>Meu Sistema de Eventos</h1>
-    <nav>
-      <a href="/hub">Hub</a> |
-      <a href="/register">Cadastrar Usuário</a> |
-      <a href="/events/create">Criar Evento</a>
-    </nav>
+    <header>
+      <h1>Meu Sistema de Eventos</h1>
+      <nav>
+        <a href="/hub">Hub</a> |
+        <% if (user) { %>
+          <a href="/confirm-delete">Remover Usuário</a> |
+        <% } else { %>
+          <a href="/register">Cadastrar Usuário</a> |
+        <% } %>
+        <a href="/events/create">Criar Evento</a>
+      </nav>
+      <hr />
+    </header>
     <hr />
   </header>
 
