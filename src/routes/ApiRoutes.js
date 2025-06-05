@@ -1,9 +1,10 @@
+
 const express = require('express');
 const router = express.Router();
 
-const UserController = require('../controllers/userController');
-const EventController = require('../controllers/eventController');
-const RegistrationController = require('../controllers/regisController');
+const UserController = require('../controllers/UserController');
+const EventController = require('../controllers/EventController');
+const RegistrationController = require('../controllers/RegistrationController');
 
 // Users
 router.post('/users', UserController.createUser);

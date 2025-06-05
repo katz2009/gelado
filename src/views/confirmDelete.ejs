@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Confirm Delete</title>
+  <link rel="stylesheet" href="/styles.css" />
+</head>
+<body>
+    <h2>Remover Cadastro</h2>
+
+<p>
+  Tem certeza que deseja remover o usuário
+  <strong><%= user.name %></strong> (ID <%= user.id %>)?
+  <br />
+  <small>Todos os eventos criados por você também serão apagados.</small>
+</p>
+
+<form id="delForm">
+  <button type="submit" style="color:#fff;background:#c00;padding:8px 16px;border:none;border-radius:4px;">Sim, remover</button>
+  <a href="/hub"><button type="button">Cancelar</button></a>
+  <span id="msg"></span>
+</form>
+
+<script>
+  document.getElementById('delForm').addEventListener('submit', async e => {
+    e.preventDefault();
+    const res = await fetch(`/api/users/<%= user.id %>`, { method:'DELETE' });
+    const msg = document.getElementById('msg');
+    if (res.ok) {
+      msg.textContent = 'Usuário removido. Redirecionando...';
+      setTimeout(() => window.location.href='/register', 1500);
+    } else {
+      const data = await res.json();
+      msg.textContent = data.message || 'Erro ao remover';
+      msg.style.color = 'red';
+    }
+  });
+</script>
+</body>
+</html>

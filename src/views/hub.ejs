@@ -19,65 +19,32 @@
 
   <main>
     <section>
-      <h2>Remover Usuário</h2>
-      <form id="deleteUserForm">
-        <label for="userId">ID do usuário:</label>
-        <input type="number" id="userId" required />
-        <button type="submit">Remover</button>
-        <span id="deleteMsg"></span>
-      </form>
-    </section>
-
-    <section>
-      <h2>Criar Evento</h2>
-      <p><a href="/events/create"><button>Criar Novo Evento</button></a></p>
-    </section>
-
-    <section>
-      <h2>Eventos Registrados</h2>
-      <ul id="eventList"></ul>
-    </section>
-  </main>
-
-  <footer>
-    <hr />
-    <p style="text-align:center">© <%= new Date().getFullYear() %> Meu Sistema</p>
-  </footer>
-
-  <script>
-    async function loadEvents() {
-      const res = await fetch('/api/events');
-      const events = await res.json();
-      const ul = document.getElementById('eventList');
-      ul.innerHTML = '';
-      events.forEach(ev => {
-        const li = document.createElement('li');
-        li.textContent = `${ev.id} - ${ev.title} (${new Date(ev.date).toLocaleDateString()})`;
-        ul.appendChild(li);
-      });
-    }
-
-    document.getElementById('deleteUserForm').addEventListener('submit', async e => {
-      e.preventDefault();
-      const id = document.getElementById('userId').value;
-      const msg = document.getElementById('deleteMsg');
-      try {
-        const res = await fetch(`/api/users/${id}`, { method: 'DELETE' });
-        if (res.ok) {
-          msg.textContent = 'Usuário removido com sucesso';
-          msg.style.color = 'green';
-        } else {
-          const data = await res.json();
-          msg.textContent = data.message || 'Erro ao remover';
-          msg.style.color = 'red';
+        <h2>Bem-vindo!</h2>
+        <% if (user) { %>
+          <p>Logado como <strong><%= user.name %></strong> (ID: <%= user.id %>)</p>
+        <% } else { %>
+          <p>Nenhum usuário cadastrado nesta sessão.</p>
+        <% } %>
+      </section>
+      
+      <section>
+        <h2>Eventos Registrados</h2>
+        <ul id="eventList"></ul>
+      </section>
+      
+      <script>
+        async function loadEvents () {
+          const res  = await fetch('/api/events');
+          const list = await res.json();
+          const ul   = document.getElementById('eventList');
+          ul.innerHTML = '';
+          list.forEach(ev => {
+            const li = document.createElement('li');
+            li.textContent = `${ev.id} - ${ev.title} (${new Date(ev.date).toLocaleDateString()})`;
+            ul.appendChild(li);
+          });
         }
-      } catch (err) {
-        msg.textContent = err.message;
-        msg.style.color = 'red';
-      }
-    });
-
-    loadEvents();
-  </script>
+        loadEvents();
+      </script>      
 </body>
 </html>

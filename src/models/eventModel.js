@@ -28,6 +28,12 @@ class EventModel {
     const result = await pool.query('DELETE FROM events WHERE id = $1 RETURNING *', [id]);
     return result.rows[0];
   }
+  
+  static async deleteByCreator (creatorId) {
+    await pool.query('DELETE FROM events WHERE created_by = $1', [creatorId]);
+  }
 }
+
+
 
 module.exports = EventModel;

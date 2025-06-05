@@ -41,7 +41,7 @@
       e.preventDefault();
       const name = document.getElementById('name').value;
       const email = document.getElementById('email').value;
-      const msg = document.getElementById('regMsg');
+      const msg  = document.getElementById('regMsg');
 
       try {
         const res = await fetch('/api/users', {
@@ -51,9 +51,9 @@
         });
 
         if (res.ok) {
-          msg.textContent = 'Usuário cadastrado!';
+          msg.textContent = 'Usuário cadastrado! Redirecionando...';
           msg.style.color = 'green';
-          e.target.reset();
+          setTimeout(() => window.location.href = '/hub', 1500);
         } else {
           const data = await res.json();
           msg.textContent = data.error || 'Erro ao cadastrar';
