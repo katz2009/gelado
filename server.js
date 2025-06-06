@@ -22,4 +22,4 @@ app.use(session({
 app.use('/', viewRoutes);
 app.use('/api', apiRoutes);
 
-app.listen(3000, () => console.log('Servidor rodando na porta 3000'));
+app.listen(3000, () => console.log('Servidor rodando no link http://localhost:3000/hub'));
